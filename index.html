@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rhafa — Profil (Glassmorphism)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1012;
+      --card: rgba(255,255,255,0.04);
+      --glass: rgba(255,255,255,0.06);
+      --accent: #0ea5ff;
+      --muted: rgba(255,255,255,0.55);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,0.02), transparent),
+                  radial-gradient(900px 400px at 90% 90%, rgba(14,165,255,0.03), transparent),
+                  var(--bg);
+      color: #fff;
+      -webkit-font-smoothing:antialiased;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px 120px;
+    }
+    .wrap{
+      width:100%;
+      max-width:880px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:22px;
+    }
+    .avatar-wrap{
+      margin-top:10px;
+      width:154px;
+      height:154px;
+      display:grid;
+      place-items:center;
+      border-radius:999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow: 0 6px 30px rgba(0,0,0,0.6), inset 0 -6px 18px rgba(0,0,0,0.6);
+      border: 6px solid rgba(255,255,255,0.04);
+    }
+    .avatar{
+      width:132px;
+      height:132px;
+      border-radius:999px;
+      object-fit:cover;
+      display:block;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+      border: 6px solid rgba(15,16,18,0.6);
+    }
+    h1{
+      margin:0;
+      font-size:44px;
+      line-height:1;
+      font-weight:800;
+      letter-spacing:-0.02em;
+      text-align:center;
+    }
+    .subtitle{
+      margin-top:6px;
+      color:var(--muted);
+      font-weight:500;
+      text-align:center;
+    }
+    .glass-card{
+      width:100%;
+      margin-top:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:20px;
+      padding:36px 28px;
+      color: #ffffff;
+      text-align:center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(14px) saturate(120%);
+      -webkit-backdrop-filter: blur(14px) saturate(120%);
+    }
+    .glass-card p{
+      margin:0;
+      font-size:18px;
+      line-height:1.9;
+      color: rgba(255,255,255,0.9);
+      max-width:760px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    /* --- Bagian Skills --- */
+    .skills-section{
+      width:100%;
+      margin-top:24px;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      align-items:center;
+    }
+    .skills-section h2{
+      font-size:22px;
+      font-weight:700;
+      margin:0;
+    }
+    .skills-buttons{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      width:100%;
+      max-width:400px;
+    }
+    .skill-btn{
+      background: var(--accent);
+      color:#fff;
+      padding:14px 20px;
+      border-radius:12px;
+      font-size:16px;
+      font-weight:600;
+      border:none;
+      text-align:center;
+      cursor:pointer;
+      transition:opacity 0.2s;
+    }
+    .skill-btn:hover{opacity:0.85}
+    .skill-card{
+      background: var(--card);
+      border-radius:16px;
+      padding:24px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+    .skill-card h3{
+      margin:0;
+      font-size:20px;
+      font-weight:700;
+    }
+    .skill-card p{
+      margin-top:10px;
+      font-size:16px;
+      color:rgba(255,255,255,0.85);
+      line-height:1.7;
+    }
+    .skill-card .tag{
+      margin-top:16px;
+      display:inline-block;
+      background: var(--accent);
+      color:#fff;
+      padding:8px 18px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+    }
+    /* bottom nav */
+    .bottom-nav{
+      position:fixed;
+      left:16px;
+      right:16px;
+      bottom:18px;
+      height:72px;
+      border-radius:36px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      display:flex;
+      align-items:center;
+      justify-content:space-around;
+      padding:12px 20px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.65);
+      border: 1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(10px) saturate(120%);
+      -webkit-backdrop-filter: blur(10px) saturate(120%);
+      z-index:40;
+      gap:22px;
+    }
+    .nav-icon{
+      width:36px;
+      height:36px;
+      display:grid;
+      place-items:center;
+      opacity:0.9;
+    }
+    .nav-icon svg{width:22px;height:22px;display:block}
+    .action-btn{
+      position:fixed;
+      right:22px;
+      bottom:100px;
+      width:58px;
+      height:58px;
+      border-radius:999px;
+      background: linear-gradient(180deg,var(--accent), #0077d6);
+      display:grid;
+      place-items:center;
+      box-shadow: 0 12px 30px rgba(14,165,255,0.18), 0 6px 18px rgba(0,0,0,0.5);
+      border:3px solid rgba(255,255,255,0.06);
+      z-index:50;
+    }
+    .action-btn svg{width:20px;height:20px}
+    @media (max-width:480px){
+      h1{font-size:34px}
+      .avatar-wrap{width:128px;height:128px}
+      .avatar{width:112px;height:112px}
+      .glass-card{padding:28px}
+      body{padding-bottom:140px}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap" role="main">
+<div class="avatar-wrap" aria-hidden="true">
+  <img class="avatar" src="images/foto-rhafa.jpeg" alt="Foto Rhafa" />
+</div>
+    <h1>Rhafa Faruq Alamin</h1>
+    <div class="subtitle">Tentang Saya</div>
+    <section class="glass-card" aria-labelledby="about-title">
+      <p id="about-title">Saya adalah seorang pelajar di SMKN 7 BATAM yang terus berkembang dan memiliki semangat tinggi untuk belajar hal-hal baru. Saya senang mengeksplorasi berbagai bidang, mulai dari teknologi, seni, hingga ilmu pengetahuan, serta berusaha mengembangkan diri lewat pengalaman dan tantangan yang ada. Contoh: Python, JavaScript, dan bahasa pemrograman lainnya.</p>
+    </section>
+
+    <!-- Bagian Keterampilan -->
+    <section class="skills-section">
+      <h2>Keterampilan</h2>
+      <div class="skills-buttons">
+        <button class="skill-btn">HTML ⌨️</button>
+        <button class="skill-btn">Python 🐍</button>
+        <button class="skill-btn">UI/UX Design 🎨</button>
+        <button class="skill-btn">Game Dev 🎮</button>
+      </div>
+
+      <!-- Web Designer -->
+      <div class="skill-card">
+        <h3>Web Designer</h3>
+        <p>Web Designer merancang dan mengembangkan tampilan serta fungsi situs web, fokus pada estetika visual, tata letak, dan pengalaman pengguna agar situs menarik, responsif, dan mudah digunakan.</p>
+        <span class="tag">Web 🌐</span>
+      </div>
+
+      <!-- UI/UX Designer -->
+      <div class="skill-card">
+        <h3>Design</h3>
+        <p>UI/UX Designer bertugas menciptakan antarmuka pengguna (UI) yang estetis dan fungsional, fokus pada desain visual seperti tata letak, warna, dan konsistensi interaksi.</p>
+        <span class="tag">Design 🧩</span>
+      </div>
+
+      <!-- Game Developer -->
+      <div class="skill-card">
+        <h3>Game Developer</h3>
+        <p>Game Developer merancang, mengembangkan, dan memprogram video game, mencakup aspek gameplay, grafis, suara, dan mekanika permainan untuk pengalaman interaktif.</p>
+        <span class="tag">Game 🎮</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- bottom nav -->
+  <nav class="bottom-nav" role="navigation" aria-label="Bottom navigation">
+    <div class="nav-icon" title="Home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5L12 4l9 7.5"/><path d="M5 12.5v6a1 1 0 0 0 1 1h3v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4h3a1 1 0 0 0 1-1v-6"/></svg>
+    </div>
+    <div class="nav-icon" title="Bookmark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <div class="nav-icon" title="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M21 21l-4.35-4.35"/></svg>
+    </div>
+    <div class="nav-icon" title="Emoji">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.2 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg>
+    </div>
+  </nav>
+
+  <!-- floating action button -->
+  <div class="action-btn" role="button" aria-label="Tombol mode terang gelap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+  </div>
+</body>
+</html>
